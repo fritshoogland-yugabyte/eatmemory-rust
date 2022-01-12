@@ -26,10 +26,9 @@ fn main() {
     let mut key = String::new();
     let _input = std::io::stdin().read_line(&mut key).unwrap();
 
-    // amount = # as MB * 1024 (->KB) * 1024 (->B) / 8 (u8 -> u64)
-    let amount_as_u64: usize = ((allocation_amount*1024*1024)/8).try_into().unwrap();
-    let mut hog = vec![0u64; amount_as_u64];
-    hog[0..amount_as_u64].fill(0);
+    let amount_as_u8: usize = (allocation_amount*1024*1024).try_into().unwrap();
+    let mut hog = vec![0u8; amount_as_u8];
+    hog[0..amount_as_u8].fill(0);
 
     print_memory();
     println!("Press enter to stop and deallocate");
