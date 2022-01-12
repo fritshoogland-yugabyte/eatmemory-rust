@@ -12,7 +12,7 @@ fn main() {
         eprintln!("Error: first argument must be amount of memory to allocate.");
         process::exit(1);
     }
-    let allocation_amount: i32 = args[1].parse().unwrap();
+    let allocation_amount: i64 = args[1].parse().unwrap();
 
     let system = sysinfo::System::new_all();
     if allocation_amount < 1 || allocation_amount as u64 > system.available_memory()/1024 {
