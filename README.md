@@ -14,7 +14,7 @@ USAGE:
 FLAGS:
     -h, --help         Prints help information
     -m, --memlock      if set call mlock()
-    -q, --query        if set displays memory and swap details
+    -q, --query        if set displays memory and swap details, then quit
     -V, --version      Prints version information
     -v, --verbosity    if set displays memory and swap details plus actions
 
