@@ -38,4 +38,4 @@ Locked memory cannot be swapped.
 Any comments, remarks or advise is welcome.
 
 # acknowledgement
-This is the rust version of the the eatmemory.c program by Julio Viera (https://github.com/julman99/eatmemory.git).
+This utility is inspired by the eatmemory.c program by Julio Viera (https://github.com/julman99/eatmemory.git).
