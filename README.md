@@ -13,7 +13,7 @@ USAGE:
 
 FLAGS:
     -h, --help         Prints help information
-    -m, --memlock      if set try to call mlock()
+    -m, --memlock      if set call mlock()
     -q, --query        if set displays memory and swap details
     -V, --version      Prints version information
     -v, --verbosity    if set displays memory and swap details plus actions
