@@ -39,3 +39,8 @@ Any comments, remarks or advise is welcome.
 
 # acknowledgement
 This utility is inspired by the eatmemory.c program by Julio Viera (https://github.com/julman99/eatmemory.git).
+
+# installation
+In order to run this utility, you must compile it. The compilation require's Rust's Cargo: https://www.rust-lang.org/tools/install (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
+Git clone this repo, cd into it, and run `cargo build`. That compiles the code.
+You can run it via cargo (`cargo run -- <options>`), or use the compiled executable, available in `target/debug`: `target/debug/eatmemory`
