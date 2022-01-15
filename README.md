@@ -25,11 +25,11 @@ OPTIONS:
     -s, --size-definition <size-definition>      size of allocation in MB, megabytes [default: 0]
 ```
 
-Use `-q` to get an overview of physical and swap allocations.
-Use `-s` with a size in MB to allocate memory. This is the virtual memory allocation.
+Use `-q` to get an overview of physical and swap allocations.  
+Use `-s` with a size in MB to allocate memory. This is the virtual memory allocation.  
 
 By default, `-a` is set to -1, which means it will follow the size of `-s` and touch the pages to get these paged in.
-It can be set to another value to show or investigate the difference between the virtual allocation and truly paged memory.
+It can be set to another value to show or investigate the difference between the virtual allocation and truly paged memory.  
 
 Another option is to use the `-m` switch. This will execute (libc) mlock(). 
 This might not succeed if the linux user has a lower limit set for locked memory than is requested. eatmemory will tell you.
