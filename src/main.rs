@@ -66,15 +66,16 @@ fn main() {
         (allocation_definition*1024*1024).try_into().unwrap()
     };
     let mut hog = vec![0u8; size_as_u8];
+    let ptr = hog.as_ptr() as *const c_void;
+    if verbosity { println!("pointer to hog: {:?}", ptr) }
 
     if memlock {
         if verbosity { println!("executing mlock") }
-        let ptr = hog.as_ptr() as *const c_void;
         let result = unsafe { mlock(ptr, size_as_u8) };
         if result != 0 { println!("mlock did not succeed, returned: {}. hint: look at limits via ulimit.", result) }
     }
 
-    if verbosity { println!("allocating vec for {} MB", allocation_definition) }
+    if verbosity { println!("allocating vec for {} MB (-1 means creation size)", allocation_definition) }
     hog[0..allocation_as_u8].fill(0);
 
     if verbosity { print_memory() }
