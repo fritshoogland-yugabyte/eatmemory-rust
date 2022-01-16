@@ -71,7 +71,7 @@ fn main() {
         if verbosity { println!("executing mlock") }
         let ptr = hog.as_ptr() as *const c_void;
         let result = unsafe { mlock(ptr, size_as_u8) };
-        if result != 0 { println!("mlock did not succeed, returned: {}. hint: look at limits via uname.", result) }
+        if result != 0 { println!("mlock did not succeed, returned: {}. hint: look at limits via ulimit.", result) }
     }
 
     if verbosity { println!("allocating vec for {} MB", allocation_definition) }
