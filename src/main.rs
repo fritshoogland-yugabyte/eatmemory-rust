@@ -7,7 +7,7 @@ use structopt::StructOpt;
 #[derive(Debug, StructOpt)]
 struct Opts {
     #[structopt(short, long)]
-    /// if set displays memory and swap details.
+    /// if set displays memory and swap details, then quits.
     query: bool,
     #[structopt(short, long)]
     /// if set displays memory and swap details plus actions.
