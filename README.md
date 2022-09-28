@@ -48,7 +48,15 @@ use `-a` to choose the allocation method:
 - malloc: the libc malloc() function is called to allocate memory for the size of init, then libc memset() is used to set use size bytes to zero, and then libc free() is called to deallocate the memory.
 - mmap: the libc mmap() function is called to allocate anonymous memory for the size of init, then libc memset() is used to set use size bytes to zero, and then libc munmap() is called to deallocate the memory.
 
-Any comments, remarks or advise is welcome.
+Any comments or remarks are welcome.
+
+Example usage of the native-wait option:
+```shell
+for T in $(seq 1 10); do ./target/release/eatmemory -i 2000 -a native-wait & done
+```
+The (default) linux overcommit setting allows to initialize more memory than is available, and thus in the above example of allocating 2000M/2G times 10 = 20G, which is possible on a server that has that amount of memory visible as available in /proc/meminfo, even if actual memory is much lower, such as let's say 4G.  
+The trick is that after two seconds because of native-wait, the processes start allocating, which then oversubscribes on memory.  
+The purpose is to show this phenomenon to be happening.
 
 # acknowledgement
 This utility is inspired by the eatmemory.c program by Julio Viera (https://github.com/julman99/eatmemory.git).
