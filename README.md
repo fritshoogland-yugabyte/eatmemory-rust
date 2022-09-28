@@ -13,18 +13,18 @@ USAGE:
 
 FLAGS:
     -h, --help         Prints help information
-    -q, --query        if set displays memory and swap details, then quits.
-    -v, --verbosity    if set displays memory and swap details, and activity details.
-    -a, --alloc_type   specifies allocation type; default: native, other options: native-wait, mlock, malloc, mmap.
-                       native: allocates a vector, and optionally zero's part of the content, paging in memory.
-                       native-wait: allocates a vector, waits 2 seconds, then optionally zero's the content, paging in memory.
-                       mlock: allocates a vector, and optionally mlock()-s part of it.
-                       malloc: performs malloc(), and optionally memset()-s part of the malloc()-ed memory, then free()-s.
-                       mmap: performs mmap(), and optionally memset()-s part of the mmap()-ed memory, then munmap()-s.
-    -i, --init_size_mb size of the allocation in MB (this is the virtual size).
-    -u, --use_size_mb  size of the to be paged in in MB (this is the resident size). Default use_size_mb == init_size_mb.
-    -s, --step         step mode: stop after performing each action, to allow investigation.
+    -q, --query        if set displays memory and swap details, then quits
+    -s, --step         if set stops for every action to allow investigation
     -V, --version      Prints version information
+    -v, --verbosity    if set displays memory and swap details plus actions
+
+OPTIONS:
+    -a, --alloc-type <alloc-type>        type of allocation [default: native]  [possible values: native, native-wait,
+                                         mlock, malloc, mmap]
+    -i, --init-size-mb <init-size-mb>    size of initialisation/creation in MB, megabytes. This is the virtual set size
+                                         [default: 0]
+    -u, --use-size-mb <use-size-mb>      size of used/touched in MB, megabytes. This is the resident set size. By
+                                         default, the init size is allocated
 ```
 
 Use `-q` to get an overview of physical and swap allocations only.  
