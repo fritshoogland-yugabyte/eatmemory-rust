@@ -55,7 +55,7 @@ Example usage of the native-wait option:
 for T in $(seq 1 10); do ./target/release/eatmemory -i 2000 -a native-wait & done
 ```
 The (default) linux overcommit setting allows to initialize more memory than is available, and thus in the above example of allocating 2000M/2G times 10 = 20G, which is possible on a server that has that amount of memory visible as available in /proc/meminfo, even if actual memory is much lower, such as let's say 4G.  
-The trick is that after two seconds because of native-wait, the processes start allocating, which then oversubscribes on memory.  
+The trick is that after two seconds because of native-wait, the processes start allocating, which then oversubscribes on memory, and if so will summon the OOM killer.  
 The purpose is to show this phenomenon to be happening.
 
 # acknowledgement
